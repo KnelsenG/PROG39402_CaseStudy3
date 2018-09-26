@@ -24,7 +24,7 @@ class AddGroceryItemViewModel @Inject constructor(
     val price = ObservableField<String>()
     val weight = ObservableField<String>()
     val quantity = ObservableField<String>()
-    val image = ObservableField<Int>()
+    val image = ObservableField<GroceryImage>()
 
     val isSaving = ObservableBoolean()
 
@@ -41,7 +41,7 @@ class AddGroceryItemViewModel @Inject constructor(
         get() = quantity.get()?.toInt(10) ?: 1
 
     private val mImage: Int
-        get() = image.get() ?: R.drawable.food
+        get() = image.get()?.resId ?: R.drawable.food
 
     fun btnSaveClick() {
 
@@ -50,7 +50,7 @@ class AddGroceryItemViewModel @Inject constructor(
             isSaving.set(true)
 
             if (mName == "No Name") {
-                val noNameCount = repository.countByNoName();
+                val noNameCount = repository.countByNoName()
                 name.set("No Name $noNameCount")
             }
 
@@ -64,8 +64,8 @@ class AddGroceryItemViewModel @Inject constructor(
 
     }
 
-    fun btnImageClick(groveryImage: GroceryImage){
-        image.set(groveryImage.resId)
+    fun btnImageClick(groceryImage: GroceryImage){
+        image.set(groceryImage)
     }
 
     companion object {

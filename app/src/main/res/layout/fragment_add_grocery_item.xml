@@ -235,6 +235,7 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/food"
                 android:drawableRight="@drawable/food"
+                android:checked="@{vm.image == GroceryImage.FOOD}"
                 android:onClick="@{()->vm.btnImageClick(GroceryImage.FOOD)}" />
 
             <RadioButton
@@ -242,6 +243,7 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/food_apple"
                 android:drawableRight="@drawable/food_apple"
+                android:checked="@{vm.image == GroceryImage.APPLE}"
                 android:onClick="@{()->vm.btnImageClick(GroceryImage.APPLE)}" />
 
             <RadioButton
@@ -249,6 +251,7 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/food_croissant"
                 android:drawableRight="@drawable/food_croissant"
+                android:checked="@{vm.image == GroceryImage.CROISSANT}"
                 android:onClick="@{()->vm.btnImageClick(GroceryImage.CROISSANT)}" />
 
             <RadioButton
@@ -256,6 +259,7 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/food_drink"
                 android:drawableRight="@drawable/food_drink"
+                android:checked="@{vm.image == GroceryImage.DRINK}"
                 android:onClick="@{()->vm.btnImageClick(GroceryImage.DRINK)}" />
 
         </RadioGroup>

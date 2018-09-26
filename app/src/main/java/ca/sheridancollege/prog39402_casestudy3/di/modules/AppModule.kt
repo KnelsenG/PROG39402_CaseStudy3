@@ -8,6 +8,7 @@ import ca.sheridancollege.prog39402_casestudy3.di.modules.viewmodel.ViewModelMod
 import javax.inject.Singleton
 
 @Module(includes = [
+    SharedPreferencesModule::class,
     RoomModule::class,
     ViewModelModule::class
 ])
