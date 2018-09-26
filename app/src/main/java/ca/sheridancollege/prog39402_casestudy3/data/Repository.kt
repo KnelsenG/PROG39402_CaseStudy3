@@ -17,9 +17,10 @@ class Repository @Inject constructor(
         return groceryDAO.allGroceryItems()
     }
 
-    fun countByNoName(): Int{
+    fun countByNoName(): Int {
         return groceryDAO.countItemsByName("No Name");
     }
+
     companion object {
         const val TAG = "Repository"
     }

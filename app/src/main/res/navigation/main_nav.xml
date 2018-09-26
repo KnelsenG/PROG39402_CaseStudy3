@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_nav"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
     app:startDestination="@id/groceryListFragment">
 
     <fragment
         android:id="@+id/groceryListFragment"
         android:name="ca.sheridancollege.prog39402_casestudy3.fragmentGroceryList.FragmentGroceryList"
-        android:label="GroceryListFragment" >
+        android:label="GroceryListFragment">
         <action
             android:id="@+id/action_groceryListFragment_to_addGroceryItemFragment"
             app:destination="@id/addGroceryItemFragment"

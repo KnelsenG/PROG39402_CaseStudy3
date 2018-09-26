@@ -35,7 +35,7 @@ class GroceryListViewModel @Inject constructor(
         isEmpty.set(!it.isEmpty())
     }
 
-    fun fabNewClick(){
+    fun fabNewClick() {
         fabClickEvent.value = Unit
     }
 

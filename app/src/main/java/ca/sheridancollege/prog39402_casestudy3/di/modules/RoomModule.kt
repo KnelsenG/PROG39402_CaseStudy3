@@ -2,9 +2,10 @@ package ca.sheridancollege.prog39402_casestudy3.di.modules
 
 import android.content.Context
 import androidx.room.Room
+import ca.sheridancollege.prog39402_casestudy3.data.local.AppDatabase
+import ca.sheridancollege.prog39402_casestudy3.data.local.GroceryDAO
 import dagger.Module
 import dagger.Provides
-import ca.sheridancollege.prog39402_casestudy3.data.local.*
 import javax.inject.Singleton
 
 @Module

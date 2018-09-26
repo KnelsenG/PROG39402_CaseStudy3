@@ -2,9 +2,9 @@ package ca.sheridancollege.prog39402_casestudy3.di.modules
 
 import android.app.Application
 import android.content.Context
+import ca.sheridancollege.prog39402_casestudy3.di.modules.viewmodel.ViewModelModule
 import dagger.Binds
 import dagger.Module
-import ca.sheridancollege.prog39402_casestudy3.di.modules.viewmodel.ViewModelModule
 import javax.inject.Singleton
 
 @Module(includes = [

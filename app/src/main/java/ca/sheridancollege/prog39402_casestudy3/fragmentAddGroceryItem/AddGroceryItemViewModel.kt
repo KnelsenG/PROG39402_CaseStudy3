@@ -5,6 +5,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import ca.sheridancollege.prog39402_casestudy3.R
 import ca.sheridancollege.prog39402_casestudy3.data.Repository
+import ca.sheridancollege.prog39402_casestudy3.data.model.GroceryItem
 import ca.sheridancollege.prog39402_casestudy3.util.GroceryImage
 import ca.sheridancollege.prog39402_casestudy3.util.SingleLiveEvent
 import kotlinx.coroutines.experimental.GlobalScope
@@ -61,14 +62,14 @@ class AddGroceryItemViewModel @Inject constructor(
             return
 
         GlobalScope.launch {
-            //            saveEventBegin.postValue(Unit)
-//            isSaving.set(true)
-//
-//            repository.saveGroceryItem(GroceryItem(mImage, mName, mPrice, mWeight, mQuantity))
+            saveEventBegin.postValue(Unit)
+            isSaving.set(true)
+
+            repository.saveGroceryItem(GroceryItem(mImage, mName, mPrice, mWeight, mQuantity))
             delay(1000)
 
-//            isSaving.set(false)
-//            saveEventComplete.postValue(Unit)
+            isSaving.set(false)
+            saveEventComplete.postValue(Unit)
 
         }
 

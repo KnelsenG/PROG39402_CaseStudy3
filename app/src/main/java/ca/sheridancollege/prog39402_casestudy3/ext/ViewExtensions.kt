@@ -1,8 +1,8 @@
 package ca.sheridancollege.prog39402_casestudy3.ext
 
 import android.widget.ImageView
-import com.bumptech.glide.Glide
 import ca.sheridancollege.prog39402_casestudy3.R
+import com.bumptech.glide.Glide
 
 fun ImageView.loadImage(urlOrResource: Any?) {
     Glide.with(context)

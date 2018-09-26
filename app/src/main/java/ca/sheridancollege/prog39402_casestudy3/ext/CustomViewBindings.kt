@@ -7,7 +7,7 @@ import androidx.databinding.BindingAdapter
 import com.google.android.material.textfield.TextInputLayout
 
 @BindingAdapter("toggleVisibility", requireAll = false)
-fun toggleVisibility(view: View, show: Boolean){
+fun toggleVisibility(view: View, show: Boolean) {
     view.visibility = if (show) View.VISIBLE else View.GONE
 }
 
@@ -27,6 +27,6 @@ fun textInt(textView: TextView, value: Int) {
 }
 
 @BindingAdapter("tilError")
-fun tilError(textInputLayout: TextInputLayout, value: String?){
+fun tilError(textInputLayout: TextInputLayout, value: String?) {
     textInputLayout.error = value
 }

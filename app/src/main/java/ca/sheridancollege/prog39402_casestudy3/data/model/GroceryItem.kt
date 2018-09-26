@@ -12,7 +12,7 @@ data class GroceryItem(
         val price: Double,
         val weight: Double,
         val qty: Int
-){
+) {
     constructor(
             image: Int,
             name: String,
