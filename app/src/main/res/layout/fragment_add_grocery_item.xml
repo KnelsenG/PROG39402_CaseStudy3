@@ -24,8 +24,9 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent=".35" />
 
-        <EditText
-            android:id="@+id/etName"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilName"
+            tilError="@{vm.nameError}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -33,16 +34,23 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:ems="10"
-            android:hint="@string/item_name"
-            android:inputType="textPersonName"
-            android:text="@={vm.name}"
+            app:errorEnabled="@{vm.nameErrorState}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/etPrice"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="@={vm.name}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPrice"
+            tilError="@{vm.priceError}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -50,12 +58,20 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:text="@={vm.price}"
+            app:errorEnabled="@{vm.priceErrorState}"
             app:layout_constraintEnd_toStartOf="@id/tvPricePostfix"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/etName" />
+            app:layout_constraintTop_toBottomOf="@id/tilName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:text="@={vm.price}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/tvPricePostfix"
@@ -64,9 +80,9 @@
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
             android:text="@string/price_postfix"
-            app:layout_constraintBottom_toBottomOf="@id/etPrice"
+            app:layout_constraintBottom_toBottomOf="@id/tilPrice"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/etPrice" />
+            app:layout_constraintTop_toTopOf="@id/tilPrice" />
 
         <EditText
             android:id="@+id/etWeight"
@@ -83,7 +99,7 @@
             android:text="@={vm.weight}"
             app:layout_constraintEnd_toStartOf="@id/tvGramsPostfix"
             app:layout_constraintStart_toStartOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/etPrice" />
+            app:layout_constraintTop_toBottomOf="@id/tilPrice" />
 
         <TextView
             android:id="@+id/tvGramsPostfix"
@@ -121,9 +137,9 @@
             android:layout_marginRight="16dp"
             android:text="@string/name"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@id/etName"
+            app:layout_constraintBottom_toBottomOf="@id/tilName"
             app:layout_constraintEnd_toStartOf="@id/guideline"
-            app:layout_constraintTop_toTopOf="@id/etName" />
+            app:layout_constraintTop_toTopOf="@id/tilName" />
 
         <TextView
             android:id="@+id/tvPricePrefix"
@@ -133,9 +149,9 @@
             android:layout_marginRight="16dp"
             android:text="@string/price"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@id/etPrice"
+            app:layout_constraintBottom_toBottomOf="@id/tilPrice"
             app:layout_constraintEnd_toStartOf="@id/guideline"
-            app:layout_constraintTop_toTopOf="@id/etPrice" />
+            app:layout_constraintTop_toTopOf="@id/tilPrice" />
 
         <TextView
             android:id="@+id/tvWeightPrefix"
@@ -235,7 +251,6 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/food"
                 android:drawableRight="@drawable/food"
-                android:checked="@{vm.image == GroceryImage.FOOD}"
                 android:onClick="@{()->vm.btnImageClick(GroceryImage.FOOD)}" />
 
             <RadioButton
@@ -243,7 +258,6 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/food_apple"
                 android:drawableRight="@drawable/food_apple"
-                android:checked="@{vm.image == GroceryImage.APPLE}"
                 android:onClick="@{()->vm.btnImageClick(GroceryImage.APPLE)}" />
 
             <RadioButton
@@ -251,7 +265,6 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/food_croissant"
                 android:drawableRight="@drawable/food_croissant"
-                android:checked="@{vm.image == GroceryImage.CROISSANT}"
                 android:onClick="@{()->vm.btnImageClick(GroceryImage.CROISSANT)}" />
 
             <RadioButton
@@ -259,7 +272,6 @@
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/food_drink"
                 android:drawableRight="@drawable/food_drink"
-                android:checked="@{vm.image == GroceryImage.DRINK}"
                 android:onClick="@{()->vm.btnImageClick(GroceryImage.DRINK)}" />
 
         </RadioGroup>

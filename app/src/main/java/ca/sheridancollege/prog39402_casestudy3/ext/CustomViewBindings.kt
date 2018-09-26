@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.google.android.material.textfield.TextInputLayout
 
 @BindingAdapter("toggleVisibility", requireAll = false)
 fun toggleVisibility(view: View, show: Boolean){
@@ -23,4 +24,9 @@ fun textDouble(textView: TextView, value: Double) {
 @BindingAdapter("textInt")
 fun textInt(textView: TextView, value: Int) {
     textView.text = value.toString()
+}
+
+@BindingAdapter("tilError")
+fun tilError(textInputLayout: TextInputLayout, value: String?){
+    textInputLayout.error = value
 }
