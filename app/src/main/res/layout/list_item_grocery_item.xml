@@ -18,8 +18,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{()->clickListener.onGroceryItemClick(groceryItem)}"
         android:layout_margin="10dp"
+        android:onClick="@{()->clickListener.onGroceryItemClick(groceryItem)}"
         app:cardCornerRadius="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,27 +28,16 @@
 
             <ImageView
                 android:id="@+id/ivProduct"
+                glideImage="@{groceryItem.image}"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                glideImage="@{groceryItem.image}"
                 android:contentDescription="@string/grocery_image"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/tvProductId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:text="Product ID" />
 
             <TextView
                 android:id="@+id/tvName"
@@ -74,14 +63,27 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
             <TextView
-                android:id="@+id/tvPricePostfix"
+                android:id="@+id/tvPricePrefix"
+                textDouble="@{groceryItem.price}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                textDouble="@{groceryItem.price}"
+                app:layout_constraintBottom_toBottomOf="@+id/tvProductPricePrefix"
                 app:layout_constraintStart_toEndOf="@+id/tvProductPricePrefix"
                 app:layout_constraintTop_toTopOf="@+id/tvProductPricePrefix"
+                tools:text="@string/li_prefix_price" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                textDouble="@{groceryItem.price}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPricePrefix"
+                app:layout_constraintStart_toEndOf="@+id/tvPricePrefix"
+                app:layout_constraintTop_toTopOf="@+id/tvPricePrefix"
                 tools:text="100" />
 
             <TextView
@@ -97,14 +99,26 @@
 
             <TextView
                 android:id="@+id/tvQty"
+                textInt="@{groceryItem.qty}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                textInt="@{groceryItem.qty}"
                 app:layout_constraintStart_toEndOf="@+id/tvProductQtyPrefix"
                 app:layout_constraintTop_toTopOf="@+id/tvProductQtyPrefix"
                 tools:text="100" />
+
+            <TextView
+                android:id="@+id/tvId"
+                textLong="@{groceryItem.id}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Product ID" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -26,6 +26,11 @@ fun textInt(textView: TextView, value: Int) {
     textView.text = value.toString()
 }
 
+@BindingAdapter("textLong")
+fun textInt(textView: TextView, value: Long) {
+    textView.text = value.toString()
+}
+
 @BindingAdapter("tilError")
 fun tilError(textInputLayout: TextInputLayout, value: String?) {
     textInputLayout.error = value

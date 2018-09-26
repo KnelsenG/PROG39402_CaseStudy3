@@ -123,7 +123,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             app:errorEnabled="@{vm.priceErrorState}"
-            app:layout_constraintEnd_toStartOf="@id/tvPricePostfix"
+            app:layout_constraintEnd_toStartOf="@id/tvPricePrefix"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintTop_toBottomOf="@id/tilName">
 
